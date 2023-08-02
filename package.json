@@ -1,0 +1,37 @@
+{
+  "name": "grunnbelop",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix --ext src/**/*.{ts,vue}",
+    "prettier": "prettier src/**/*.{ts,vue} --write"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.15",
+    "@heroicons/vue": "^2.0.18",
+    "date-fns": "^2.30.0",
+    "pinia": "^2.1.6",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.4",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/parser": "^6.2.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-vue": "^9.16.1",
+    "postcss": "^8.4.27",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vue-eslint-parser": "^9.3.1",
+    "vue-tsc": "^1.8.5"
+  }
+}
