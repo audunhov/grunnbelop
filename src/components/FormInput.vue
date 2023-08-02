@@ -17,7 +17,7 @@
         class="block w-full rounded-md border-0 py-1.5 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 transition placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-select sm:text-sm sm:leading-6"
         placeholder="0.00"
         aria-describedby="price-currency"
-        @input="emit('update:modelValue', parseFloat($event.target.value))"
+        @input="onInput($event as InputEvent)"
       />
       <div
         class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
@@ -38,6 +38,14 @@ defineProps<{
   modelValue?: number
   disabled?: boolean
 }>()
+
+interface InputEvent extends Event {
+  target: HTMLInputElement
+}
+
+const onInput = (event: InputEvent) => {
+  emit('update:modelValue', parseFloat(event.target.value || '0'))
+}
 
 const emit = defineEmits<{
   (e: 'update:modelValue', v: number): void

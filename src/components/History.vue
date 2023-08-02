@@ -18,7 +18,7 @@
           <div>
             <span>Grunnbeløp: {{ entry.grunnbeløp }} (+</span>
             <abbr title="Siden året før">
-              {{ getPercentage(entry.omregningsfaktor) }}
+              {{ getPercentage(entry.omregningsfaktor || 0) }}
             </abbr>
             )
           </div>
@@ -55,7 +55,7 @@ function apply(grunnbelop: Grunnbelop) {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-function getPercentage(factor: Grunnbelop['omregningsfaktor']) {
+function getPercentage(factor: number) {
   const formatter = new Intl.NumberFormat('nb', {
     style: 'percent',
     maximumFractionDigits: 2,

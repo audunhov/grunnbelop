@@ -28,7 +28,7 @@ import DefaultLayout from './layouts/DefaultLayout.vue'
 import History from './components/History.vue'
 import Calculator from './components/Calculator.vue'
 import { onMounted } from 'vue'
-import { useGStore } from './stores/g'
+import { useGStore } from './stores/g.js'
 import { Grunnbelop } from './types.js'
 
 const gs = useGStore()

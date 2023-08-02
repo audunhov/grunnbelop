@@ -48,20 +48,26 @@ const last = ref<Function>(() => updateG(gValue.value))
 
 function updateG(value: number) {
   gValue.value = !isNaN(value) ? value : 0
-  nokValue.value = parseFloat((gValue.value * gStore.G?.grunnbeløp).toFixed(2))
+  nokValue.value = parseFloat(
+    (gValue.value * (gStore.G?.grunnbeløp || 1)).toFixed(2)
+  )
   mndValue.value = parseInt((nokValue.value / 12).toFixed(0))
   last.value = () => updateG(gValue.value)
 }
 function updateNok(value: number) {
   nokValue.value = !isNaN(value) ? value : 0
-  gValue.value = parseFloat((nokValue.value / gStore.G?.grunnbeløp).toFixed(2))
+  gValue.value = parseFloat(
+    (nokValue.value / (gStore.G?.grunnbeløp || 1)).toFixed(2)
+  )
   mndValue.value = Math.round(nokValue.value / 12)
   last.value = () => updateNok(nokValue.value)
 }
 function updateMnd(value: number) {
   mndValue.value = !isNaN(value) ? value : 0
   nokValue.value = mndValue.value * 12
-  gValue.value = parseFloat((nokValue.value / gStore.G?.grunnbeløp).toFixed(2))
+  gValue.value = parseFloat(
+    (nokValue.value / (gStore.G?.grunnbeløp || 1)).toFixed(2)
+  )
   last.value = () => updateMnd(mndValue.value)
 }
 
