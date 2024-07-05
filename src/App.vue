@@ -34,7 +34,7 @@ import { Grunnbelop } from './types.js'
 const gs = useGStore()
 
 onMounted(async () => {
-  const res = await fetch('https://g.nav.no/api/v1/historikk')
+  const res = await fetch('https://g.nav.no/api/v1/historikk/grunnbeløp')
   if (!res.ok) throw res.statusText
   const data = await res.json()
   gs.GHistory = data as Grunnbelop[]
